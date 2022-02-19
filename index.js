@@ -14,7 +14,7 @@ const classes = ['CPSC-545', 'CPSC-546']
 const commands = [
     new SlashCommandBuilder()
     .setName('homework')
-    .setDescription("Check Homework!")
+    .setDescription("Check Homework! Only available for CPSC-545 & CPSC-546")
     .addStringOption(option =>
         option.setName('course')
         .setDescription('Ex: cpsc545')
@@ -101,14 +101,14 @@ client.on('interactionCreate', async interaction => {
         let embeds = [];
 
         list.forEach(item => {
-            let date = new Date(item.due_at).toLocaleString();
+            let date = new Date(item.due_at).toString();
             let embed = new MessageEmbed()
             .setColor('#EFFF00')
-            .setTitle(course_name)
+            .setTitle(trim(item.name), 1024)
             .setURL(item.html_url)
             .addFields(
-                { name: 'Homework', value: trim(item.name, 1024) },
                 { name: 'Due Date', value: trim(date, 1024) },
+                { name: 'Course', value: trim(course, 1024) },
             );
 
             embeds.push(embed);
