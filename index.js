@@ -36,7 +36,7 @@ const commands = [
 const rest = new REST({ version: '9'}).setToken(config.BOT_TOKEN);
 
 // update command list 
-rest.put(Routes.applicationGuildCommands(config.CLIENT_ID, config.GUILD_ID), { body: commands })
+rest.put(Routes.applicationCommands(config.CLIENT_ID), { body: commands })
 .then( () => console.log('Successfully registered application commands.'))
 .catch(console.error);
 
