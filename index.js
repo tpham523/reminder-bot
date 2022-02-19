@@ -101,7 +101,7 @@ client.on('interactionCreate', async interaction => {
         let embeds = [];
 
         list.forEach(item => {
-            let date = new Date(item.due_at).toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
+            let date = new Date(item.due_at).toLocaleDateString("en-US", {timeZone: "America/Los_Angeles"});
             let embed = new MessageEmbed()
             .setColor('#EFFF00')
             .setTitle(trim(item.name), 1024)
