@@ -102,7 +102,7 @@ client.on('interactionCreate', async interaction => {
 
         list.forEach(item => {
             let timeFormat = { timeZone: "America/Los_Angeles", weekday: 'long', 
-            year: 'numeric', month: 'long', day: 'numeric',
+            year: 'numeric', month: 'numeric', day: 'numeric',
             hour: '2-digit', minute: '2-digit' };
 
             let date = new Date(item.due_at).toLocaleDateString("en-US", timeFormat);
