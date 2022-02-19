@@ -101,7 +101,9 @@ client.on('interactionCreate', async interaction => {
         let embeds = [];
 
         list.forEach(item => {
-            let timeFormat = { timeZone: "America/Los_Angeles", weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            let timeFormat = { timeZone: "America/Los_Angeles", weekday: 'long', 
+            year: 'numeric', month: 'long', day: 'numeric',
+            hour: '2-digit', minute: '2-digit' };
 
             let date = new Date(item.due_at).toLocaleDateString("en-US", timeFormat);
             let embed = new MessageEmbed()
