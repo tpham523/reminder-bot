@@ -101,14 +101,14 @@ client.on('interactionCreate', async interaction => {
         let embeds = [];
 
         list.forEach(item => {
-            let date = new Date(item.due_at).toString();
+            let date = new Date(item.due_at).toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
             let embed = new MessageEmbed()
             .setColor('#EFFF00')
             .setTitle(trim(item.name), 1024)
             .setURL(item.html_url)
             .addFields(
                 { name: 'Due Date', value: trim(date, 1024) },
-                { name: 'Course', value: trim(course, 1024) },
+                { name: 'Course', value: trim(course_name, 1024) },
             );
 
             embeds.push(embed);
